@@ -49,9 +49,15 @@ class Quiz
      */
     private $questions;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Result::class, mappedBy="quiz", orphanRemoval=true)
+     */
+    private $results;
+
     public function __construct()
     {
         $this->questions = new ArrayCollection();
+        $this->results = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -143,6 +149,36 @@ class Quiz
             // set the owning side to null (unless already changed)
             if ($question->getQuiz() === $this) {
                 $question->setQuiz(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Result>
+     */
+    public function getResults(): Collection
+    {
+        return $this->results;
+    }
+
+    public function addResult(Result $result): self
+    {
+        if (!$this->results->contains($result)) {
+            $this->results[] = $result;
+            $result->setQuiz($this);
+        }
+
+        return $this;
+    }
+
+    public function removeResult(Result $result): self
+    {
+        if ($this->results->removeElement($result)) {
+            // set the owning side to null (unless already changed)
+            if ($result->getQuiz() === $this) {
+                $result->setQuiz(null);
             }
         }
 

@@ -9,7 +9,7 @@ class HomeController extends AbstractController
 {
     
     /**
-     * @Route("/", name="home")
+     * @Route("/accueil", name="home")
      */
     public function index()
     {
