@@ -13,6 +13,8 @@ class HomeController extends AbstractController
      */
     public function index()
     {
-        return $this->render('home/index.html.twig');
+        $tabQuiz = ["test1", "test2", "test2"];
+        return $this->render('home/index.html.twig',
+                             ['tabQuiz'=>$tabQuiz]);
     }
 }
