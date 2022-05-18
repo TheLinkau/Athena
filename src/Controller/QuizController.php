@@ -40,6 +40,9 @@ class QuizController extends AbstractController
                 $question->setRightAnswer($dataQuestion['rightAnswer']);
                 $em->persist($question);
             }
+            $img = file_get_contents($form->get('image')->getData()->getPathname());
+            $imgB64 = base64_encode($img);
+            $quiz->setImage($imgB64);
             $quiz->setDateCreation(new DateTime);
             $quiz->setCreatedBy('user');
             $em->persist($quiz);
