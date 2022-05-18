@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block javascripts %}
+	<script src="/quizdepoulet/public/JS/ranking.js" defer></script>
+{% endblock %}
+
+{% block stylesheets %}
+	<link href="../CSS/css.css" rel="stylesheet">
+{% endblock %}
+
+
+{% block body %}
+	<div class="container">
+		{# HEADER #}
+		<div id="maxscore" data-maxscore="{#{{res.score}}#}5" class="row" style="text-align: center; margin-top: 75px">
+    		<h1 style="font-family: 'cartoonregular';">CLASSEMENT</h1>
+			<h2>{{quiz.name}}</h2>
+            <h3>Points Maximum : TO-DO</h3>
+  		</div>
+		{# LISTE DES UTILISATEURS #}
+		{% for res in results %}
+			<div class="row" style="align-items: center; flex-wrap: nowrap; justify-content: space-evenly">
+				<span style="width: auto">{{res.user.username}}</span>
+				<span style="width: auto">Points : {{res.score}}</span>
+				<canvas data-score="{{res.score}}" style="height: 10%; width: 10%"></canvas>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}
