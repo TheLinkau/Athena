@@ -64,15 +64,22 @@ class QuizRepository extends ServiceEntityRepository
     }
     */
 
-    /*
-    public function findOneBySomeField($value): ?Quiz
+    public function findByCreator($value)
     {
         return $this->createQueryBuilder('q')
-            ->andWhere('q.exampleField = :val')
+            ->andWhere('q.created_by = :val')
             ->setParameter('val', $value)
             ->getQuery()
-            ->getOneOrNullResult()
+            ->getResult()
         ;
     }
-    */
+
+    public function findAll()
+    {
+        return $this->createQueryBuilder('q')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    
 }
