@@ -10,20 +10,22 @@
 
 
 {% block body %}
-	<div class="container">
+	<div class="min-vh-100" style="background-image: url('../Image/fond-cartoon2.jpg'); background-size: cover;">
+		<div class="container" style="padding-top: 75px">
 		{# HEADER #}
-		<div id="maxscore" data-maxscore="{#{{res.score}}#}5" class="row" style="text-align: center; margin-top: 75px">
-    		<h1 style="font-family: 'cartoonregular';">CLASSEMENT</h1>
+		<div id="maxscore" data-maxscore="{{total}}" class="row" style="text-align: center;">
+    		<h1 style="font-family: 'cartoonregular';">TOP 10</h1>
 			<h2>{{quiz.name}}</h2>
-            <h3>Points Maximum : TO-DO</h3>
+            <h3>Points Maximum : {{total}}</h3>
   		</div>
 		{# LISTE DES UTILISATEURS #}
 		{% for res in results %}
-			<div class="row" style="align-items: center; flex-wrap: nowrap; justify-content: space-evenly">
+			<div class="row" style="align-items: center; flex-wrap: nowrap; justify-content: space-evenly; background-color: rgba(237, 197, 127, .5); border-radius: 10px; margin: 5px 0px;">
 				<span style="width: auto">{{res.user.username}}</span>
 				<span style="width: auto">Points : {{res.score}}</span>
 				<canvas data-score="{{res.score}}" style="height: 10%; width: 10%"></canvas>
 			</div>
 		{% endfor %}
+	</div>
 	</div>
 {% endblock %}
