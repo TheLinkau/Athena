@@ -1,7 +1,49 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Accueil{% endblock %}
+{% block stylesheets %}
+<link href="./CSS/css.css" rel="stylesheet">
+{% endblock %}
 
 {% block body %}
-	<h1>Accueil</h1>
+	
+	<div class="d-flex align-items-center min-vh-100" style="background-image: url('./Image/fond-cartoon2.jpg'); background-size: cover;">
+	<div class="container text-center" style="position: relative; z-index: 1;">
+	
+			<h1 style="font-family: 'cartoonregular'; font-size: 6em; color: white; text-shadow: 3px 3px 2px black;">QUIZ DE POULET</h1>
+
+			<div class="list-group w-75 mx-auto" id="quiz-container">
+			{% for q in tabQuiz %}
+
+				    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start rounded mb-3" style="background: radial-gradient(#edc57f, #dfad55);">
+				    <div class="d-flex w-100 justify-content-between">
+			    	
+		    			<img src="./Image/girafe.jpg" alt="image du quiz" class="img-fluid" style="height: 200px;">
+	    				
+		    			<div class="col">
+							<div class="d-flex w-100 justify-content-between">
+								<div></div>
+					      		<h5 class="mb-1" style="font-family:'cartoonregular'; font-size: 2em;">Titre du quiz</h5>
+					      		<small>date de creation du quiz</small>
+						    </div>
+
+						    <div class="d-flex w-100 justify-content-between">
+						    	<div></div>
+						    	<p class="mb-1" style="font-family: 'cartoonregular'; font-size: 2em;">Description du quiz</p>
+						    	<small>Nombre de question</small>
+						    </div>
+		    			</div>
+
+					</div>
+				    </a>
+
+			{% endfor %}
+			</div>
+
+			<button type="button" class="btn btn-primary btn-lg mt-3">Créer un quiz</button>
+
+	</div>
+	</div>
+
+
+
 {% endblock %}
