@@ -1,0 +1,19 @@
+{% macro printQuestionRow(questionForm) %}
+    <div class="card p-3 mt-2">
+        {{ form_errors(questionForm) }}
+        <div class="row mb-4">
+            <div class="col-md-12">{{ form_row(questionForm.content) }}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">{{ form_row(questionForm.answerA) }}</div>
+            <div class="col-md-6">{{ form_row(questionForm.answerB) }}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">{{ form_row(questionForm.answerC) }}</div>
+            <div class="col-md-6">{{ form_row(questionForm.answerD) }}</div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-3">{{ form_row(questionForm.rightAnswer) }}</div>
+        </div>
+    </div>
+{% endmacro %}
