@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block javascripts %}
+    <script src="/quizdepoulet/public/JS/newQuiz.js"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="w-75 mx-auto p-5">
+    <h1>Création de quiz</h1>
+        {{ form_start(form) }}
+        {% form_theme form 'bootstrap_4_layout.html.twig' %}
+        <div class="row">
+            <div class="col-md-12">{{ form_row(form.name) }}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">{{ form_row(form.description) }}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">{{ form_row(form.image) }}</div>
+        </div>
+        <ul id="question-fields-list"
+            data-prototype="{{ form_widget(form.questions.vars.prototype)|e }}"
+            data-widget-tags="{{ '<li></li>'|e }}"
+            data-widget-counter="{{ form.questions|length }}">
+            {% for questionField in form.questions %}
+                <li>
+                    {{ form_errors(questionField) }}
+                    {{ form_widget(questionField) }}
+                </li>
+            {% endfor %}
+        </ul>
+
+        <button type="button"
+            class="add-another-collection-widget"
+            data-list-selector="#question-fields-list">Ajouter une question</button>
+        {{ form_widget(form) }}
+        <button type="submit" class="btn btn-success mt-3">Enregistrer</button>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
