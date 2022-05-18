@@ -1,0 +1,17 @@
+
+
+{% block body %}
+<div>
+    <h1>Inscription</h1>
+        {{ form_start(formUser) }}
+        <div>{{ form_row(formUser.username, {'name':''}) }}</div>
+        <div>{{ form_row(formUser.password, {'name':''}) }}</div>           
+            {{ form_widget(formUser) }}
+        <button> Inscription</button>
+            {{ form_end(formUser) }}
+</div>
+<p>Vous possédez déjà un compte ? Aucun problème connecté vous de suite</p>
+<a href="{{ path ('login') }}">
+    <button class="ghost" >Connexion</button>
+</a>
+{% endblock %}

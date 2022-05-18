@@ -2,16 +2,16 @@
 
 namespace App\Entity;
 
-use App\Repository\UtilisateursRepository;
+use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * @ORM\Entity(repositoryClass=UtilisateursRepository::class)
+ * @ORM\Entity(repositoryClass=UserRepository::class)
  */
-class User implements UserInterface,\Serializable
+class User
 {
     /**
      * @ORM\Id
@@ -79,33 +79,6 @@ class User implements UserInterface,\Serializable
         return $this->roles;
     }
 
-    public function getSalt()
-    {
-        return null;
-    }
-
-    public function eraseCredentials()
-    {
-    }
-
-    public function serialize()
-    {
-        return serialize([
-            $this->id,
-            $this->username,
-            $this->password
-        ]);
-    }
-
-    public function unserialize($serialized)
-    {
-        list (
-            $this->id,
-            $this->username,
-            $this->password
-            ) = unserialize($serialized, ['allowed_classes' => false]);
-    }
-
     public function setRoles(array $roles): self
     {
         $this->roles = $roles;
@@ -114,7 +87,7 @@ class User implements UserInterface,\Serializable
     }
     
     public function __toString() {
-        return $this->prenom." ".$this->nom;
+        return $this->username;
     }
 
     public function getRatioPronostic(): ?int

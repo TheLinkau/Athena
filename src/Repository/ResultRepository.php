@@ -47,6 +47,15 @@ class ResultRepository extends ServiceEntityRepository
         }
     }
 
+    public function findByQuiz($quiz)
+    {
+        return $this->createQueryBuilder('r')
+            ->andWhere('r.quiz = :val')
+            ->setParameter('val', $quiz)
+            ->orderBy('r.score', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
     // /**
     //  * @return Result[] Returns an array of Result objects
     //  */
