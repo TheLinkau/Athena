@@ -14,10 +14,10 @@
 			<div class="list-group w-75 mx-auto" id="quiz-container">
 			{% for q in tabQuiz %}
 
-				    <a href="./quiz/{{q.id}}" class="list-group-item list-group-item-action flex-column align-items-start rounded mb-3" style="background: radial-gradient(#edc57f, #dfad55);">
+				    <a href="./quiz/{{q.id}}" class="list-group-item list-group-item-action flex-column align-items-start mb-3" style="background: radial-gradient(#edc57f, #dfad55); border-radius: 20px;">
 				    <div class="d-flex w-100 justify-content-between">
 			    	
-		    			<img src="./Image/girafe.jpg" alt="image du quiz" class="img-fluid" style="height: 200px;">
+		    			<img src="{{q.image}}" alt="image du quiz" class="img-fluid" style="height: 200px;">
 	    				
 		    			<div class="row w-100">
 							<div class="row justify-content-center">

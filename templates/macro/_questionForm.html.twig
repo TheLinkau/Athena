@@ -1,5 +1,5 @@
 {% macro printQuestionRow(questionForm) %}
-    <div class="card p-3 mt-2">
+    <div class="card p-3 mt-2" style="background: radial-gradient(#edc57f, #dfad55); border-radius: 10px;">
         {{ form_errors(questionForm) }}
         <div class="row mb-4">
             <div class="col-md-12">{{ form_row(questionForm.content) }}</div>
