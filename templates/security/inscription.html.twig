@@ -10,8 +10,5 @@
         <button> Inscription</button>
             {{ form_end(formUser) }}
 </div>
-<p>Vous possédez déjà un compte ? Aucun problème connecté vous de suite</p>
-<a href="{{ path ('login') }}">
-    <button class="ghost" >Connexion</button>
-</a>
+<p>Vous possédez déjà un compte ? <a href="{{ path ('login') }}">Connectez vous !!</a></p>
 {% endblock %}
