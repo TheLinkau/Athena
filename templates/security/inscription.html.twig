@@ -1,14 +1,25 @@
-
+{% extends 'base.html.twig' %}
 
 {% block body %}
-<div>
-    <h1>Inscription</h1>
+<div class="d-flex align-items-center min-vh-100" style="background-image: url('./Image/fond-cartoon2.jpg'); background-size: cover;">
+<div class="container text-center" style="position: relative; z-index: 1;">
+
+    <h1 class="m-2" style="font-family: 'cartoonregular'; font-size: 6em; color: white; text-shadow: 3px 3px 2px black;">Inscris toi !</h1>
+
+    <div class="login-box p-3" style="background: radial-gradient(#edc57f, #dfad55); border-radius: 20px;">
         {{ form_start(formUser) }}
-        <div>{{ form_row(formUser.username, {'name':''}) }}</div>
-        <div>{{ form_row(formUser.password, {'name':''}) }}</div>           
+        <div class="m-2">{{ form_row(formUser.username, {'name':''}) }}</div>
+        <div class="m-2">{{ form_row(formUser.password, {'name':''}) }}</div>           
             {{ form_widget(formUser) }}
-        <button> Inscription</button>
+        <button class="btn btn-info btn-lg"> Inscription</button>
             {{ form_end(formUser) }}
+
+        <p class="m-2">Vous possédez déjà un compte ? <a href="{{ path ('login') }}">Connectez vous !!</a></p>
+    </div>
+
 </div>
-<p>Vous possédez déjà un compte ? <a href="{{ path ('login') }}">Connectez vous !!</a></p>
+</div>
+
+
+
 {% endblock %}

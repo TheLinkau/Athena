@@ -6,14 +6,10 @@
     <script src="/quizdepoulet/public/JS/newQuiz.js"></script>
 {% endblock %}
 
-{% block stylesheets %}
-<link href="../CSS/css.css" rel="stylesheet">
-{% endblock %}
-
 {% block body %}
-    <div class="min-vh-100" style="background-image: url('../Image/fond-cartoon2.jpg'); background-size: cover;">
+    <div class="min-vh-100 p-5" style="background-image: url('../Image/fond-cartoon2.jpg'); background-size: cover;">
 
-        <h1 class="mt-5 w-75 mx-auto" style="font-family: 'cartoonregular'; font-size: 6em; color: white; text-shadow: 3px 3px 2px black;">Création de quiz</h1>
+        <h1 class="w-75 mx-auto" style="font-family: 'cartoonregular'; font-size: 6em; color: white; text-shadow: 3px 3px 2px black;">Création de quiz</h1>
 
         <div class="w-75 mx-auto">
             {{ form_start(form) }}
