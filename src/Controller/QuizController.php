@@ -39,6 +39,9 @@ class QuizController extends AbstractController
                 $answers[] = $dataQuestion['answerD'];
                 $question->setAnswers($answers);
                 $question->setRightAnswer($dataQuestion['rightAnswer']);
+                $img = file_get_contents($dataQuestion['image']->getPathname());
+                $imgB64 = base64_encode($img);
+                $quiz->setImage('data: '.$dataQuestion['image']->getMimeType().';base64,'.$imgB64);
                 $em->persist($question);
             }
             $img = file_get_contents($form->get('image')->getData()->getPathname());

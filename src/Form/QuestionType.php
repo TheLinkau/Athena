@@ -8,6 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class QuestionType extends AbstractType
 {
@@ -35,6 +36,10 @@ class QuestionType extends AbstractType
             ])
             ->add('rightAnswer', IntegerType::class, [
                 'label' => 'Bonne réponse (1-4)'
+            ])
+            ->add('image', FileType::class, [
+                'label' => 'Image',
+                'mapped' => false
             ])
         ;
     }
