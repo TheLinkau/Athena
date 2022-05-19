@@ -40,11 +40,6 @@ class Quiz
     private $dateCreation;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $createdBy;
-
-    /**
      * @ORM\OneToMany(targetEntity=Question::class, mappedBy="quiz")
      */
     private $questions;
@@ -53,6 +48,11 @@ class Quiz
      * @ORM\OneToMany(targetEntity=Result::class, mappedBy="quiz", orphanRemoval=true)
      */
     private $results;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="quizzes")
+     */
+    private $createdBy;
 
     public function __construct()
     {
@@ -113,18 +113,6 @@ class Quiz
         return $this;
     }
 
-    public function getCreatedBy(): ?string
-    {
-        return $this->createdBy;
-    }
-
-    public function setCreatedBy(string $createdBy): self
-    {
-        $this->createdBy = $createdBy;
-
-        return $this;
-    }
-
     /**
      * @return Collection<int, Question>
      */
@@ -181,6 +169,18 @@ class Quiz
                 $result->setQuiz(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCreatedBy(): ?User
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(?User $createdBy): self
+    {
+        $this->createdBy = $createdBy;
 
         return $this;
     }
