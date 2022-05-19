@@ -39,6 +39,9 @@ class AdminController extends AbstractController
     {
         $em = $this->getDoctrine()->getManager();
         $quiz = $this->quizRepository->find($id);
+        foreach($quiz->getQuestions() as $question) {
+            $em->remove($question);
+        }
         $em->remove($quiz);
         $em->flush();
         return $this->redirectToRoute('admin.quiz.index');
