@@ -30,3 +30,11 @@
     transition-duration: 1s;
     padding: 20px 0;
 }
+
+.reponse {
+    text-align: center;
+    background-color: rgba(237, 197, 127, .5);
+    border-radius: 10px; 
+    margin: 5px;
+    cursor: pointer;
+}
