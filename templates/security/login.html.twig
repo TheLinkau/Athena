@@ -1,36 +1,40 @@
+{% extends 'base.html.twig' %}
 
 {% block title %}Connexion{% endblock %}
 
-{% block stylesheets %}
-<link href="./CSS/css.css" rel="stylesheet">
-{% endblock %}
+{% block body %}
 
+<div class="d-flex align-items-center min-vh-100" style="background-image: url('./Image/fond-cartoon2.jpg'); background-size: cover;">
+<div class="container text-center" style="position: relative; z-index: 1;">
 
-<body id="bod">
-    <form autocomplete="off" method="post">
-        <div class="login-box">
-            <h2>Connexion</h2>
+    <h1 class="m-2" style="font-family: 'cartoonregular'; font-size: 6em; color: white; text-shadow: 3px 3px 2px black;">Connecte toi !</h1>
+
+    <form autocomplete="off" method="post" style="background: radial-gradient(#edc57f, #dfad55); border-radius: 20px;">
+        <div class="login-box p-3">
                 {% if error %}
-                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                <div class="alert alert-danger m-2">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
                 {% endif %}
                 {% if app.user %}
-                    <div class="mb-3">
-                        You are logged in as {{ app.user.username }}, <a href="{{ path('login') }}">Logout</a>
-                    </div>
+                <div class="m-2">
+                    You are logged in as {{ app.user.username }}, <a href="{{ path('login') }}">Logout</a>
+                </div>
                 {% endif %}
-                <div class="user-box">
+                <div class="user-box m-2">
                     <input placeholder="Pseudo" type="text" value="{{ last_username }}" name="username" required>
                 </div>
 
-                <div class="user-box">
+                <div class="user-box m-2">
                     <input placeholder="Mot de passe" type="password" name="password"  required>
                 </div>
 
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-                <button type="submit">Connexion</button>
+                <button type="submit m-2" class="btn btn-info btn-lg">Connexion</button>
                 <p>Vous n'avez pas de compte ? <a href="{{ path ('inscription') }}">inscrivez vous !!</a></p>
         </div>
     </form>
-</body>
 
+</div>  
+</div>  
+
+{% endblock %}
