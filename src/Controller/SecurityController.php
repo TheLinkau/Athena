@@ -54,7 +54,7 @@ class SecurityController extends AbstractController
 
         $formUser->handleRequest($request);
 
-        if($formUser->isSubmitted()){ 
+        if($formUser->isSubmitted() && $formUser->isValid()){ 
             $u1->setRoles(["ROLE_USER"]);
             $u1->setPassword(
                 $passwordEncoder->encodePassword(
@@ -71,5 +71,13 @@ class SecurityController extends AbstractController
         return $this->render('security/inscription.html.twig', [
             'formUser' => $formUser->createView()
         ]);
+    }
+
+    /**
+     * @Route("/logout", name="app_logout")
+     */
+    public function logout()
+    {
+        throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }
 }

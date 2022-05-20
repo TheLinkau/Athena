@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
-    
+
     /**
      * @Route("/accueil", name="home")
      */
@@ -16,7 +16,7 @@ class HomeController extends AbstractController
     {
         // Récupération de tous les quiz
         $results = $repo->findAll();
-        
+
         return $this->render('home/accueil.html.twig',
                              ['tabQuiz'=>$results]);
     }
