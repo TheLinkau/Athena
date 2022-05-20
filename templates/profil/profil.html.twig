@@ -21,20 +21,18 @@
 				    <a class="list-group-item list-group-item-action flex-column align-items-start rounded mb-3" style="background: radial-gradient(#edc57f, #dfad55);">
 				    <div class="d-flex w-100 justify-content-between">
 			    	
-		    			<img src="{{r.quiz.image}}" alt="image du quiz" class="img-fluid" style="height: 200px;">
-	    				
 		    			<div class="row w-100">
                             <div class="row justify-content-center">
 						    	<p style="font-family: 'cartoonregular'; font-size: 1.5em;">Quiz nommé {{r.quiz.name}}</p>
 						    </div>
 
 							<div class="row justify-content-center">
-                                <canvas id="res" data-score="{{r.score}}" style="height: 10%; width: 10%"></canvas>
+                                <canvas data-score="{{r.score}}" style="height: 80%; width: 80%"></canvas>
 						    </div>
 
 						    <div class="d-flex row justify-content-between" style="padding-right: 0px;">
 						    	<div class="col-4 align-self-center" style="padding: 0px;">Quiz créé par {{r.quiz.createdBy}} </div>
-						    	<div class="col-4 align-self-center" style="padding: 0px;">zzz</div>
+						    	<div class="col-4 align-self-center" style="padding: 0px;">Réalisé le </div>
 						    </div>
 		    			</div>
 

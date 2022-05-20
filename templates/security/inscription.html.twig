@@ -9,14 +9,14 @@
     <div class="login-box p-3" style="background: radial-gradient(#edc57f, #dfad55); border-radius: 20px;">
         {{ form_start(formUser) }}
         <div class="m-2">{{ form_row(formUser.username, {'name':''}) }}</div>
-        <div class="m-2">{{ form_row(formUser.password, {'name':''}) }}</div>           
+        <div class="m-2">{{ form_row(formUser.plainPassword, {'name':''}) }}</div>           
             {{ form_widget(formUser) }}
         <button class="btn btn-info btn-lg"> Inscription</button>
             {{ form_end(formUser) }}
 
         <p class="m-2">Vous possédez déjà un compte ? <a href="{{ path ('login') }}">Connectez vous !!</a></p>
     </div>
-
+    
 </div>
 </div>
 
