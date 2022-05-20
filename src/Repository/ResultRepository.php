@@ -56,6 +56,16 @@ class ResultRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    public function findByUser($idUser)
+    {
+        return $this->createQueryBuilder('r')
+            ->andWhere('r.id = :val')
+            ->setParameter('val', $idUser)
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return Result[] Returns an array of Result objects
     //  */
