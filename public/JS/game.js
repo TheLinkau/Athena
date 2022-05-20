@@ -99,14 +99,19 @@ function nextQuestion(resultat) {
 // Quiz finit
 function done() {
     if (!end) {
-        // TO DO TO DO TO DO TO DO TO DO
-        console.log('TO-DO : Envoi du resultat en BDO')
-        end = true // pour empecher d'envoyer plus d'une fois le résultat
+        $.ajax({  
+            url: window.location,
+            type: 'POST',
+            data: { 'score': score },
+            success: function(result) {
+                window.location.replace(result);
+            },  
+            error : function(xhr, textStatus, errorThrown) {  
+               console.log('Ajax request failed.');
+            }
+         });
+        end = true
     }
-    // Redirection vers l'accueil
-    setTimeout(() => {
-        // Redirection
-    }, 3000)
 }
 
 function updateItems() {
