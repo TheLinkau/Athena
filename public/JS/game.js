@@ -93,6 +93,7 @@ function nextQuestion(resultat) {
                 r3 += 7
                 r4 += 7
                 answer += 7
+                image += 7
                 updateItems()
                 setCompteur(currentQuestion)
                 rep.style.backgroundColor = backColor
