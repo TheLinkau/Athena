@@ -77,7 +77,7 @@ function nextQuestion(resultat) {
         imageDom = document.getElementById('img')
         // Faire sortir les items de la vue
         setTimeout(() => {
-                contenuDom.style.transform = "translate(0px,-50vh)"
+                contenuDom.style.transform = "translate(0px,-60vh)"
                 r1Dom.style.transform = "translate(-200%,0px)"
                 r3Dom.style.transform = "translate(-200%,0px)"
                 r2Dom.style.transform = "translate(200%,0px)"
@@ -93,6 +93,7 @@ function nextQuestion(resultat) {
                 r3 += 7
                 r4 += 7
                 answer += 7
+                image += 7
                 updateItems()
                 setCompteur(currentQuestion)
                 rep.style.backgroundColor = backColor
