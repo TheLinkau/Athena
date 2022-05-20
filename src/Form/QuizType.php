@@ -24,7 +24,8 @@ class QuizType extends AbstractType
             ])
             ->add('image', FileType::class, [
                 'label' => 'Image',
-                'mapped' => false
+                'mapped' => false,
+                'required' => false
             ])
             ->add('questions', CollectionType::class, [
                 'entry_type' => QuestionType::class,

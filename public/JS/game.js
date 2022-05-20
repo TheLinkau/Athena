@@ -26,6 +26,9 @@ var r4Dom = null
 // END
 var end = false
 
+// Token
+var dispo = true
+
 // Initialisation
 document.getElementById('contenu').innerHTML = stringArray[contenu]
 document.getElementById('r1').innerHTML = stringArray[r1]
@@ -35,12 +38,16 @@ document.getElementById('r4').innerHTML = stringArray[r4]
 
 // Appelée quand on clique sur une réponse
 function nextQuestion(resultat) {
+    if (!dispo) {
+        return
+    }
+    dispo = false
     // Vérification réponse
     var rep = document.getElementById('r' + String(resultat))
     var temp = document.getElementById('contenu')
     const backColor = rep.style.backgroundColor
     const backColor2 = temp.style.backgroundColor
-    if (Number(resultat-1) == stringArray[answer]) {
+    if (Number(resultat-1) == stringArray[answer] - 1) {
         score += 1
         document.getElementById('okcounter').innerHTML = 'Correct answers : ' + String(score)
         rep.style.backgroundColor = 'green'
@@ -90,6 +97,7 @@ function nextQuestion(resultat) {
                 r3Dom.style.transform = "translate(0px,0px)"
                 r2Dom.style.transform = "translate(0px,0px)"
                 r4Dom.style.transform = "translate(0px,0px)"
+                dispo = true
             }
             , 2000
         )
