@@ -13,10 +13,11 @@
 	<div class="min-vh-100" style="background-image: url('../Image/fond-cartoon2.jpg'); background-size: cover;">
 		<div class="container" style="padding-top: 75px">
 		{# HEADER #}
-		<div id="maxscore" data-maxscore="{{total}}" class="row" style="text-align: center;">
-    		<h1 style="font-family: 'cartoonregular';">TOP 10</h1>
+		<div id="maxscore" data-maxscore="{{total}}" class="row" style="text-align: center; justify-content: center; margin-bottom: 10px">
+    		<h1 style="font-family: 'cartoonregular'; font-size: 6em; color: white; text-shadow: 3px 3px 2px black;">TOP 10</h1>
 			<h2>{{quiz.name}}</h2>
             <h3>Points Maximum : {{total}}</h3>
+			<a href="./play/{{quiz.id}}" type="button" class="btn btn-info btn-lg" style="width: auto">JOUER</a>
   		</div>
 		{# LISTE DES UTILISATEURS #}
 		{% for res in results %}

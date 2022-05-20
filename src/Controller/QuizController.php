@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Security\Core\Security;
 use App\Entity\Quiz;
 use App\Entity\Question;
 use App\Form\QuizType;
@@ -17,7 +18,7 @@ class QuizController extends AbstractController
     /**
      * @Route("/quiz/new", name="quiz.new")
      */
-    public function newQuiz(Request $request)
+    public function newQuiz(Request $request, Security $security)
     {
         $em = $this->getDoctrine()->getManager();
         
@@ -38,13 +39,16 @@ class QuizController extends AbstractController
                 $answers[] = $dataQuestion['answerD'];
                 $question->setAnswers($answers);
                 $question->setRightAnswer($dataQuestion['rightAnswer']);
+                $img = file_get_contents($dataQuestion['image']->getPathname());
+                $imgB64 = base64_encode($img);
+                $quiz->setImage('data: '.$dataQuestion['image']->getMimeType().';base64,'.$imgB64);
                 $em->persist($question);
             }
             $img = file_get_contents($form->get('image')->getData()->getPathname());
             $imgB64 = base64_encode($img);
-            $quiz->setImage($imgB64);
+            $quiz->setImage('data: '.$form->get('image')->getData()->getMimeType().';base64,'.$imgB64);
             $quiz->setDateCreation(new DateTime);
-            $quiz->setCreatedBy('user');
+            $quiz->setCreatedBy($security->getUser());
             $em->persist($quiz);
             $em->flush();
             return $this->redirectToRoute('home');

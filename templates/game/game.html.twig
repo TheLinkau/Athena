@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+	<link href="../../CSS/css.css" rel="stylesheet">
+{% endblock %}
+
+{% block javascripts %}
+	<script src="/quizdepoulet/public/JS/game.js" defer></script>
+{% endblock %}
+
+
+{% block body %}
+	<div id="init" class="min-vh-100" style="background-image: url('../../Image/fond-cartoon2.jpg'); background-size: cover;"
+    data-questions="{{questions}}">
+		<div class="container" style="padding-top: 15%;">
+			{# QUESTION #}
+			<div class="row" style="text-align: center; font-family: 'cartoonregular';">
+                <h2>{{titre}}</h2>
+			</div>
+            <div class="row" style="text-align: center; font-family: 'cartoonregular';">
+                <h3 id="compteur"></h3>
+			</div>
+            <div class="row" style="text-align: center; font-family: 'cartoonregular'; font-color">
+                <h3 id="okcounter" style="color: green;">Correct answers : 0</h3>
+			</div>
+            <div id="state" class="row" style="justify-content: center; font-family: 'cartoonregular';">
+			</div>
+            <div id="contenu" class="row slideSpeed" style="justify-content: center; text-align: center; background-color: rgba(237, 197, 127, .5); border-radius: 10px; margin: 5px 0;">
+			</div>
+            <div class="row">
+				<div id="r1" onclick="nextQuestion(1)" class="col-sm slideSpeed reponse">
+                </div>
+                <div id="r2" onclick="nextQuestion(2)" class="col-sm slideSpeed reponse">
+			    </div>
+			</div>
+            <div class="row">
+				<div id="r3" onclick="nextQuestion(3)" class="col-sm slideSpeed reponse">
+			    </div>
+                <div id="r4" onclick="nextQuestion(4)" class="col-sm slideSpeed reponse">
+			    </div>
+			</div>
+			{# REPONSES #}
+			
+		</div>
+	</div>
+{% endblock %}
