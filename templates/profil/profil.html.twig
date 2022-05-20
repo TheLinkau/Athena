@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block javascripts %}
+<script src="../JS/profil.js" defer></script>
+{% endblock %}
+
+{% block stylesheets %}
+<link href="../CSS/css.css" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+	
+	<div class="d-flex align-items-center min-vh-100" style="background-image: url('./Image/fond-cartoon2.jpg'); background-size: cover;">
+	<div class="container text-center" style="position: relative; z-index: 1;">
+	
+			<h1 style="font-family: 'cartoonregular'; font-size: 6em; color: white; text-shadow: 3px 3px 2px black;">Profil {{user.username}}</h1>
+
+			<div class="list-group w-75 mx-auto" id="quiz-container">
+			{% for r in profil %}
+
+				    <a class="list-group-item list-group-item-action flex-column align-items-start rounded mb-3" style="background: radial-gradient(#edc57f, #dfad55);">
+				    <div class="d-flex w-100 justify-content-between">
+			    	
+		    			<img src="{{r.quiz.image}}" alt="image du quiz" class="img-fluid" style="height: 200px;">
+	    				
+		    			<div class="row w-100">
+                            <div class="row justify-content-center">
+						    	<p style="font-family: 'cartoonregular'; font-size: 1.5em;">Quiz nommé {{r.quiz.name}}</p>
+						    </div>
+
+							<div class="row justify-content-center">
+                                <canvas id="res" data-score="{{r.score}}" style="height: 10%; width: 10%"></canvas>
+						    </div>
+
+						    <div class="d-flex row justify-content-between" style="padding-right: 0px;">
+						    	<div class="col-4 align-self-center" style="padding: 0px;">Quiz créé par {{r.quiz.createdBy}} </div>
+						    	<div class="col-4 align-self-center" style="padding: 0px;">zzz</div>
+						    </div>
+		    			</div>
+
+					</div>
+				    </a>
+
+			{% endfor %}
+			</div>
+	</div>
+	</div>
+
+
+
+{% endblock %}
