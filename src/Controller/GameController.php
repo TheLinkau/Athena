@@ -39,7 +39,8 @@ class GameController extends AbstractController
             . "|" . $q->getAnswers()[1]
             . "|" . $q->getAnswers()[2]
             . "|" . $q->getAnswers()[3]
-            . "|" . $q->getRightAnswer() . "|";
+            . "|" . $q->getRightAnswer()
+            . "|" . $q->getImage() . "|";
         }
         return $this->render('game/game.html.twig', ["titre" => $quiz->getName(), "questions" => $questions]);
     }
