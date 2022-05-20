@@ -4,10 +4,6 @@
 <script src="../JS/profil.js" defer></script>
 {% endblock %}
 
-{% block stylesheets %}
-<link href="../CSS/css.css" rel="stylesheet">
-{% endblock %}
-
 {% block body %}
 	
 	<div class="d-flex align-items-center min-vh-100" style="background-image: url('./Image/fond-cartoon2.jpg'); background-size: cover;">
@@ -27,12 +23,12 @@
 						    </div>
 
 							<div class="row justify-content-center">
-                                <canvas data-score="{{r.score}}" style="height: 80%; width: 80%"></canvas>
+                                <canvas data-maxscore="{{r.quiz.questions|length}}" data-score="{{r.score}}" style="height: 80%; width: 80%"></canvas>
 						    </div>
 
 						    <div class="d-flex row justify-content-between" style="padding-right: 0px;">
 						    	<div class="col-4 align-self-center" style="padding: 0px;">Quiz créé par {{r.quiz.createdBy}} </div>
-						    	<div class="col-4 align-self-center" style="padding: 0px;">Réalisé le </div>
+						    	<div class="col-4 align-self-center" style="padding: 0px;">Réalisé le {{r.date|date("d-m-Y")}}</div>
 						    </div>
 		    			</div>
 

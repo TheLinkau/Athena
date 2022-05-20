@@ -34,6 +34,11 @@ class Result
      */
     private $score;
 
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $date;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -71,6 +76,18 @@ class Result
     public function setScore(int $score): self
     {
         $this->score = $score;
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(?\DateTimeInterface $date): self
+    {
+        $this->date = $date;
 
         return $this;
     }

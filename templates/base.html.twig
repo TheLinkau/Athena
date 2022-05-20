@@ -5,7 +5,7 @@
         <title>{% block title %}Quiz de poulet{% endblock %}</title>
         <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link href="/QuizDePoulet/public/CSS/css.css" rel="stylesheet">
+        <link href="/quizdepoulet/public/CSS/css.css" rel="stylesheet">
         {% block stylesheets %}{% endblock %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.js"></script>
@@ -29,15 +29,17 @@
                 <li class="nav-item">
                   <a class="nav-link" href="#">Profil</a>
                 </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Administration
-                  </a>
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="{{ path('admin.user.index') }}">Gestion des utilisateurs</a></li>
-                    <li><a class="dropdown-item" href="{{ path('admin.quiz.index') }}">Gestion des quiz</a></li>
-                  </ul>
-                </li>
+                {% if app.user.getRoles() == ["ROLE_USER", "ROLE_ADMIN"] %}
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Administration
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="{{ path('admin.user.index') }}">Gestion des utilisateurs</a></li>
+                      <li><a class="dropdown-item" href="{{ path('admin.quiz.index') }}">Gestion des quiz</a></li>
+                    </ul>
+                  </li>
+                {% endif %}
               </ul>
             </div>
           </div>
