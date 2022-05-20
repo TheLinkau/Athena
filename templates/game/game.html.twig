@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block javascripts %}
-	<script src="/quizdepoulet/public/JS/game.js" defer></script>
+	<script src="/JS/game.js" defer></script>
 {% endblock %}
 
 {% block body %}
 	<div id="init" class="min-vh-100" style="background-image: url('../../Image/fond-cartoon2.jpg'); background-size: cover;"
     data-questions="{{questions}}">
 		<div class="container" style="padding-top: 15%;">
-			{# QUESTION #}
+			{# METADATA #}
 			<div class="row" style="text-align: center; font-family: 'cartoonregular';">
                 <h2>{{titre}}</h2>
 			</div>
@@ -20,10 +20,12 @@
 			</div>
             <div id="state" class="row" style="justify-content: center; font-family: 'cartoonregular';">
 			</div>
+			{# QUESTION #}
             <div id="contenu" class="row slideSpeed" style="justify-content: center; background-color: rgba(237, 197, 127, .5); border-radius: 10px; margin: 5px 0;">
 				<img id="img" style="max-height: 200px; width: auto;"></img>
 				<div id="texte" style="text-align: center;"></div>
 			</div>
+			{# REPONSES #}
             <div class="row">
 				<div id="r1" onclick="nextQuestion(1)" class="col-sm slideSpeed reponse">
                 </div>
@@ -36,8 +38,6 @@
                 <div id="r4" onclick="nextQuestion(4)" class="col-sm slideSpeed reponse">
 			    </div>
 			</div>
-			{# REPONSES #}
-			
 		</div>
 	</div>
 {% endblock %}

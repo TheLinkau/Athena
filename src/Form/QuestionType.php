@@ -35,11 +35,13 @@ class QuestionType extends AbstractType
                 'label' => 'Réponse 4'
             ])
             ->add('rightAnswer', IntegerType::class, [
-                'label' => 'Bonne réponse (1-4)'
+                'label' => 'Bonne réponse (1-4)',
+                'attr' => ['min' => 1, 'max' => 4]
             ])
             ->add('image', FileType::class, [
                 'label' => 'Image',
-                'mapped' => false
+                'mapped' => false,
+                'required' => false
             ])
         ;
     }

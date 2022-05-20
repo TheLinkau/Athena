@@ -16,9 +16,7 @@ class HomeController extends AbstractController
     {
         // Récupération de tous les quiz
         $results = $repo->findAll();
-
-        dump($results);
-
+        
         return $this->render('home/accueil.html.twig',
                              ['tabQuiz'=>$results]);
     }
