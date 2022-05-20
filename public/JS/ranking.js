@@ -4,6 +4,7 @@ for (let canva of document.getElementsByTagName('canvas')) {
     new Chart(canva.getContext('2d'), {
         type: 'doughnut',
         data: {
+            labels: ['success %', 'failure %'],
             datasets: [{
                 data: [Number(canva.dataset.score), maxscore - Number(canva.dataset.score)],
                 backgroundColor: ["#46BFBD", "#F7464A"],
@@ -12,6 +13,9 @@ for (let canva of document.getElementsByTagName('canvas')) {
         },
         options: {
             responsive: false,
+            legend: {
+                display: false
+            }
         }
     })
 }
